@@ -2,12 +2,14 @@
 #include <string>
 #include <map>
 
+
 void count(std::string cadena, std::map<char, int> &contado) {
   for (size_t i = 0; i < cadena.size(); i++) {
-    if (contado.find(cadena[i]) == contado.end()) {
-      contado[cadena[i]] = 1;
+    char letter = cadena[i];
+    if (contado.find(letter) == contado.end()) {
+      contado[letter] = 1;
     }else{
-      contado[cadena[i]]++;
+      contado[letter]++;
     }
   }
 }
