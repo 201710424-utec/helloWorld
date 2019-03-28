@@ -2,12 +2,25 @@
 #include <string>
 #include <map>
 
+bool verifyVocal(char letter) {
+  std::string vowels = "aeiou";
+  for (size_t i = 0; i < vowels.size(); i++) {
+    if (letter == vowels[i]) {
+      return true;
+    }
+  }
+  return false;
+}
+
 void count(std::string cadena, std::map<char, int> &contado) {
   for (size_t i = 0; i < cadena.size(); i++) {
-    if (contado.find(cadena[i]) == contado.end()) {
-      contado[cadena[i]] = 1;
-    }else{
-      contado[cadena[i]]++;
+    char letter = cadena[i];
+    if (verifyVocal(letter)) {
+      if (contado.find(letter) == contado.end()) {
+        contado[letter] = 1;
+      }else{
+        contado[letter]++;
+      }
     }
   }
 }
